@@ -20,7 +20,7 @@
   text-align: center;
   font-weight: bold;
   display: flex;
-  gap: 5px;
+  gap: 0px;
   flex-wrap: wrap;
   border: 1px solid black;
   padding: 10px;

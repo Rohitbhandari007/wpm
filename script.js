@@ -1,15 +1,39 @@
-let words = "012345678";
+let words = "Rohit Bhandari";
 let word_list = [];
 
 let words_div = document.querySelector(".words");
-generateParagraph(words);
 
 const getWord = () => {
   let word = words.split("");
   word_list = word;
+  word_list.forEach((index, item) => {
+    let newWord = document.createElement("p");
+    if(index!= " "){
+      newWord.id = item;
+      newWord.innerText = index;
+      console.log(item)
+      console.log(newWord)
+    }else{
+      newWord.id = item;
+      newWord.createEntityReference('nbsp');
+      console.log(item)
+      console.log(newWord)
+      
+    }
+    words_div.appendChild(newWord);
+    
+  });
 };
-
 getWord();
+
+console.log(word_list)
+// generateParagraph();
+
+// const generateParagraph = () => {
+ 
+// };
+
+
 let getKeyCharacter = () => {
   let keyCharacter = "";
   let currentIndex = 0;
@@ -24,7 +48,11 @@ let getKeyCharacter = () => {
     keyCharacter = e.key;
 
     if (keyCharacter === word_list[currentIndex]) {
+      let currentP = document.getElementById(currentIndex)
+      currentP.style.background = 'green'
       currentIndex++;
+   
+
       console.log(currentIndex, word_list[currentIndex], "next index, word");
     } else {
       console.log(word_list[5]);
@@ -44,12 +72,3 @@ getKeyCharacter();
 //         console.log("matchfoiund")
 //     }
 // }
-
-const generateParagraph = (list_of_words) => {
-  word_list.forEach((index, item) => {
-    let newWord = document.createElement("p");
-    newWord.id = index;
-    newWord.innerHTML = item;
-    words_div.appendChild(newWord);
-  });
-};
