@@ -51,7 +51,7 @@ let getKeyCharacter = () => {
     }
 
     
-    // console.log(currentIndex, "current index after event");
+    // cosole.log(currentIndex, "current index after event");
 
     keyCharacter = e.key;
 
