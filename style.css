@@ -22,12 +22,28 @@
   display: flex;
   gap: 0px;
   flex-wrap: wrap;
-  border: 1px solid white;
+  border: 1px solid wheat;
   color: white;
   padding: 10px;
+}
+.words p {
+  padding: 1px;
 }
 .input-area {
   width: 50%;
   align-self: center;
-  background-color: red;
+  background-color: #ec6e6e;
+}
+.stats {
+  display: flex;
+  padding: 14px;
+  color: white;
+  justify-content: space-between;
+  font-weight: bold;
+  border: 1px solid #e1e1e1;
+  width: 20%;
+}
+.errors-div,
+.accuracy-div {
+  display: flex;
 }

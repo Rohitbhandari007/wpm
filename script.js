@@ -1,8 +1,15 @@
-let words = "Rohit Bhandari";
+let words = "Rohit Bhandari is the godfather of everyone";
 let word_list = [];
 
 let words_div = document.querySelector(".words");
+let accuracy_div = document.querySelector(".accuracy");
+let errors_div = document.querySelector(".errors");
 
+let accuracy = 0
+let calc_accuracy = 0
+let errors = 0
+
+let total_words = accuracy +errors;
 const getWord = () => {
   let word = words.split("")
   
@@ -57,8 +64,14 @@ let getKeyCharacter = () => {
 
     if (keyCharacter === word_list[currentIndex]) {
       let currentP = document.getElementById(currentIndex)
-      currentP.style.background = 'green'
+      currentP.style.background = '#59DCA6'
+      currentP.style.color="black"
       currentIndex++;
+      accuracy++;
+      total_words = accuracy + errors;
+      calc_accuracy =( accuracy/total_words)*100
+    
+      accuracy_div.innerHTML =parseInt(calc_accuracy);
    
 
       console.log(currentIndex, word_list[currentIndex], "next index, word");
@@ -75,7 +88,15 @@ let getKeyCharacter = () => {
   
      
       let currentP = document.getElementById(currentIndex)
-      currentP.style.background = 'red'
+      currentP.style.background = '#ec6e6e'
+      currentP.style.color="black"
+      errors++;
+      total_words = accuracy + errors;
+      calc_accuracy =( accuracy/total_words)*100
+    
+      errors_div.innerHTML= errors;
+      accuracy_div.innerHTML =parseInt(calc_accuracy);
+      
       currentIndex++;
 
       console.log("next index", currentIndex);
