@@ -9,7 +9,9 @@ let word_count_div = document.querySelector(".word-count");
 let stats = document.querySelector(".stats");
 let time_div = document.querySelector(".timer-div");
 const timer_div = document.querySelector(".timer"); // Element to display the countdown
+let restart_btn = document.querySelector(".restart_btn");
 
+// restart_btn
 const alphanumericKeys = [
   ...Array.from({ length: 26 }, (_, i) => String.fromCharCode(97 + i)), // lowercase letters (a-z)
   ...Array.from({ length: 26 }, (_, i) => String.fromCharCode(65 + i)), // uppercase letters (A-Z)
@@ -98,7 +100,7 @@ function countdownTimer(duration, display) {
 
 // Example usage
 let stop_game = false;
-
+let start_text = document.querySelector(".start-text");
 let getKeyCharacter = () => {
   let keyCharacter = "";
   let currentIndex = 0;
@@ -110,6 +112,12 @@ let getKeyCharacter = () => {
     if (currentIndex === 0 && alphanumericKeys.includes(e.key)) {
       startingTime = durationInSeconds;
       countdownTimer(startingTime - 1, timer_div);
+      start_text.style.transition = "0.8s ease";
+      start_text.style.color = "gray";
+      start_text.style.display = "none";
+      restart_btn.style.transition = "0.8s ease";
+
+      restart_btn.style.opacity = "1";
     }
     if (currentIndex < 0) {
       currentIndex = 0;
@@ -246,3 +254,7 @@ let getKeyCharacter = () => {
   return keyCharacter;
 };
 getKeyCharacter();
+
+function Refresh() {
+  window.parent.location = window.parent.location.href;
+}
