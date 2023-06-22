@@ -83,3 +83,30 @@
   align-items: center;
   font-weight: bold;
 }
+.typingIndicator {
+  animation-duration: 0.2s;
+  animation-timing-function: linear;
+  animation-name: moveRight;
+}
+@keyframes moveRight {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.typingIndicatorleft {
+  animation-duration: 0.2s;
+  animation-timing-function: linear;
+  animation-name: moveLeft;
+}
+@keyframes moveLeft {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-12%);
+  }
+}

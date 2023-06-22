@@ -50,12 +50,13 @@ const getWord = () => {
 getWord();
 
 let typingIndicator = document.createElement("span");
-typingIndicator.innerHTML = " |";
-typingIndicator.style.fontWeight = "bold";
-setInterval(() => {
-  typingIndicator.style.visibility =
-    typingIndicator.style.visibility === "hidden" ? "visible" : "hidden";
-}, 500);
+typingIndicator.innerHTML = "|";
+// typingIndicator.className = "typingIndicator"
+
+// setInterval(() => {
+//   typingIndicator.style.visibility =
+//     typingIndicator.style.visibility === "hidden" ? "visible" : "hidden";
+// }, 500);
 
 typingIndicator.style.position = "fixed";
 
@@ -101,8 +102,7 @@ let getKeyCharacter = () => {
       countdownTimer(durationInSeconds, timer_div);
     }
     liveTime = start;
-    // console.log(liveTime, "live");
-    // console.log("Correct kyes", perviousKeys);
+
     let newPreviousKeys = perviousKeys
       .join("")
       .split(" ")
@@ -114,19 +114,11 @@ let getKeyCharacter = () => {
     wordCount = filteredKeys.length;
     word_count_div.innerHTML = wordCount;
 
-    // word_list.forEach((item, index) => {
 
-    //   perviousKeys.forEach((previousItem, previousIndex) => {
-    //     if (item === previousItem && index == previousIndex) {
-    //       console.log("j");
-    //     }
-    //   });
-    // });
 
     if (["Shift", "Alt", "Enter", "Tab", "Control"].includes(e.key)) {
       return;
     }
-    // cosole.log(currentIndex, "current index after event");
 
     keyCharacter = e.key;
     if (alphanumericKeys.includes(e.key)) {
@@ -136,6 +128,8 @@ let getKeyCharacter = () => {
       stats.style.border = "2px solid white"
       time_div.style.transition= "0.5s ease"
       time_div.style.border = "2px solid white"
+      // typingIndicator.classList.toggle = "typingIndicator"
+      typingIndicator.className = "typingIndicator"
       
     }
 
@@ -155,6 +149,10 @@ let getKeyCharacter = () => {
       // console.log(currentIndex, word_list[currentIndex], "next index, word");
     } else {
       if (e.key === "Backspace") {
+        // typingIndicator.classList.toggle = "typingIndicatorleft"
+        typingIndicator.className = "typingIndicatorleft"
+
+
         perviousKeys.pop();
         currentIndex--;
 
@@ -181,17 +179,8 @@ let getKeyCharacter = () => {
 
       currentIndex++;
       currentP.appendChild(typingIndicator);
-
-      // console.log("next index", currentIndex);
-      // console.log("nextword", words[currentIndex]);
     }
   });
   return keyCharacter;
 };
 getKeyCharacter();
-// for(let i=0; i<words.length; i++){
-//     console.log(words[i])
-//     if(hihello===words[i]){
-//         console.log("matchfoiund")
-//     }
-// }
