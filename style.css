@@ -147,6 +147,8 @@ option {
   justify-content: center;
   align-items: center;
   gap: 20px;
+  max-height: 40px;
+  min-height: 40px;
 }
 .start-text {
   font-style: italic;
@@ -158,7 +160,7 @@ option {
 }
 
 .restart_btn {
-  /* display: none; */
+  display: none;
 
   padding: 10px 20px;
   margin: 0;

@@ -1,5 +1,5 @@
 let words =
-  "the the the the the the the the the the the the the the the the the the the the ";
+  "A paragraph is a self-contained unit of discourse in writing dealing with a particular point or idea. Though not required by the orthographic conventions of any language with a writing system, paragraphs are a conventional means of organizing extended segments of prose";
 let word_list = [];
 
 let words_div = document.querySelector(".words");
@@ -116,6 +116,7 @@ let getKeyCharacter = () => {
       start_text.style.color = "gray";
       start_text.style.display = "none";
       restart_btn.style.transition = "0.8s ease";
+      restart_btn.style.display = "block";
 
       restart_btn.style.opacity = "1";
     }
