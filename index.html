@@ -31,8 +31,19 @@
       <div class="time-and-other">
         <div class="timer-div">
           Time: &nbsp;
-          <div class="timer">0</div>
+          <div class="timer"></div>
         </div>
+        <select
+          name="cars"
+          id="cars"
+          class="select-time"
+          onchange="getDuration()"
+        >
+          <option value="60" style="padding: 5px">60 Seconds</option>
+          <option value="45">45 Seconds</option>
+          <option value="30">30 Seconds</option>
+          <option value="15">15 Seconds</option>
+        </select>
       </div>
 
       <div class="words"></div>
