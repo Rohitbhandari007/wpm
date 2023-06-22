@@ -1,5 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=M+PLUS+1+Code:wght@200&family=Source+Code+Pro:wght@300&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -15,25 +14,32 @@
   height: 100vh;
   gap: 50px;
   padding: 20px 0;
-  font-family: "Poppins", sans-serif;
+  font-family: "M PLUS 1 Code", sans-serif;
 }
 .words {
-  width: 50%;
-  text-align: center;
+  width: 60%;
   font-weight: bold;
   display: flex;
-  gap: 0px;
+  gap: 1px;
   flex-wrap: wrap;
-  border: 1px solid wheat;
   border-radius: 10px;
-  color: gray;
-  padding: 10px;
+  color: rgb(117, 115, 115);
+  padding: 40px;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 32px 0 #222;
+
+  background: rgba(27, 25, 25, 0.4);
+  backdrop-filter: blur(9px);
+  -webkit-backdrop-filter: blur(9px);
 }
 .words p {
   padding: 1px;
+  font-size: 20px;
+  font-family: "M PLUS 1 Code", sans-serif;
 }
 .input-area {
-  width: 50%;
+  width: 60%;
   align-self: center;
   background-color: #ec6e6e;
 }
@@ -42,7 +48,7 @@
   padding: 14px;
   color: white;
   font-weight: bold;
-  border: 1px solid wheat;
+  border: 2px solid rgb(61, 60, 60);
   border-radius: 10px;
   max-width: 700px;
   min-width: 700px;
@@ -69,7 +75,7 @@
 .time-and-other {
   display: flex;
   color: white;
-  border: 1px solid wheat;
+  border: 2px solid rgb(61, 60, 60);
   padding: 10px;
   border-radius: 10px;
   min-width: 10%;

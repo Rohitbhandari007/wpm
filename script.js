@@ -1,11 +1,13 @@
 let words =
-  "Rohit Bhandari is the godfather of everyone Rohit Bhandari is the godfather of everyone Rohit Bhandari is the godfather of everyoneRohit Bhandari is the godfather of everyone";
+  "sunny birds sing atop green trees gentle waves caress sandy shores children laugh play meadows colorful flowers bloom gardens warm sunshine kisses rosy cheeks cozy blankets wrap around cuddles delicious cookies fill kitchen soft pillows provide peaceful slumber friendly smiles light up faces";
 let word_list = [];
 
 let words_div = document.querySelector(".words");
 let accuracy_div = document.querySelector(".accuracy");
 let errors_div = document.querySelector(".errors");
 let word_count_div = document.querySelector(".word-count");
+let stats = document.querySelector(".stats")
+let time_div = document.querySelector(".time-and-other")
 
 const alphanumericKeys = [
   ...Array.from({ length: 26 }, (_, i) => String.fromCharCode(97 + i)), // lowercase letters (a-z)
@@ -93,7 +95,7 @@ let getKeyCharacter = () => {
 
   document.body.addEventListener("keydown", (e) => {
     let start = new Date();
-
+    
     if (currentIndex === 0) {
       startingTime = durationInSeconds;
       countdownTimer(durationInSeconds, timer_div);
@@ -129,6 +131,12 @@ let getKeyCharacter = () => {
     keyCharacter = e.key;
     if (alphanumericKeys.includes(e.key)) {
       perviousKeys.push(e.key);
+      words_div.style.transition= "0.5s ease"
+      stats.style.transition= "0.5s ease"
+      stats.style.border = "2px solid white"
+      time_div.style.transition= "0.5s ease"
+      time_div.style.border = "2px solid white"
+      
     }
 
     if (keyCharacter === word_list[currentIndex]) {
