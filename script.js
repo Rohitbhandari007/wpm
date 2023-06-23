@@ -1,6 +1,72 @@
-let easy_words = "a about all also and as at be because but by can come could day do even find first for fruit me more my new no not now of on one only or other our out people say see she its just know like look make man many me more my new no not now of they thing think this those time to two up use very want way we well what when which who will with think this those time to two up use very want way we well what when which who will with"
+let easy_words = "a about all also and as at be because but by can come could day do even find first for fruit me more my new no not now of on one only or other our out people say see she its just know like look make man many me more my new no not now of they thing think this those time to two up use very want way we well what when which who will with think this those time to two up use very want way we well what when which who will with where here I me my international national Nepal Kathmandu USA India Japan Hungry Item it ginger tomato potato valorant silver platinum gold radiant master hero agent power money prize coin coins prizes buffalo cat dog ant Messi better Ronaldo than is go eat fight advanced"
 
-let medium_words = "Do one thing every day that scares you Failure is the condiment that gives success its flavor Happiness is not something ready made. It comes from your own actions Fairy tales are more than true not because they tell us that dragons exist, but because they tell us that dragons can be beaten A paragraph is a self contained unit of discourse in writing dealing with a particular point or idea Though not required by the orthographic conventions of any language with a writing system paragraphs are a conventional means of organizing extended segments of prose A paragraph is a self contained unit of discourse in writing dealing with a particular point or idea Though not required by the orthographic conventions "
+let medium_words = "Do one thing every day that scares you Failure is the condiment that gives success its flavor Happiness is not something ready made. It comes from your own actions Fairy tales are more than true not because they tell us that dragons exist, but because they tell us that dragons can be beaten A paragraph is a self contained unit of discourse in writing dealing with a particular point or idea Though not required by the orthographic conventions of any language with a writing system paragraphs are a conventional means of organizing extended segments of prose A paragraph is a self contained unit of discourse in writing dealing with a particular point or idea Though not required by the orthographic conventions here I me my international national Nepal Kathmandu USA India Japan Hungry Item it ginger tomato potato valorant silver platinum gold radiant master hero agent power money prize coin coins prizes buffalo cat dog ant Messi better Ronaldo than is go eat fight advanced"
+
+let dark_theme = {
+  "bg":"#222",
+  "color":"#fff",
+  "mainBg":"#333",
+  "boxShadow":"0 8px 32px 0 #222"
+}
+let light_theme = {
+  "bg":"#fff",
+  "color":"#222",
+  "mainBg":"#ffff",
+  "boxShadow":"0 8px 32px 0 #dfcfcf"
+}
+
+
+let current_theme = dark_theme
+
+
+let theme = document.querySelector(".select-theme")
+
+
+// background: rgba(27, 25, 25, 0.4);
+  // backdrop-filter: blur(9px);
+
+function getTheme(){
+  console.log(theme.value)
+  if(theme.value === "dark"){
+    current_theme=dark_theme
+    words_div.style.boxShadow = current_theme.boxShadow;
+
+    words_div.style.backgroundColor = current_theme.bg;
+    document.querySelector(".game-container").style.backgroundColor =current_theme.mainBg
+    document.querySelector(".time-and-other").style.color =current_theme.color;
+    accuracy_div.style.backgroundColor = current_theme.mainBg
+    speed_div.style.backgroundColor = current_theme.mainBg
+    timer_div.style.backgroundColor = current_theme.bg
+    timer_div.style.color = current_theme.color
+    time_div.style.backgroundColor = current_theme.bg
+    time_div.style.color= current_theme.color
+    speed_div.style.color= current_theme.color
+
+    stats.style.color = current_theme.color
+    accuracy_div.style.color= current_theme.color
+  }
+  if(theme.value === "light"){
+    current_theme=light_theme
+    words_div.style.boxShadow = current_theme.boxShadow;
+
+    words_div.style.backgroundColor = current_theme.bg;
+    // words_div.style.boxShadow = current_theme.boxShadow;
+    document.querySelector(".game-container").style.backgroundColor =current_theme.mainBg
+    document.querySelector(".time-and-other").style.color =current_theme.color;
+    accuracy_div.style.backgroundColor = current_theme.bg
+    speed_div.style.backgroundColor = current_theme.bg
+    timer_div.style.backgroundColor = current_theme.bg
+    timer_div.style.color = current_theme.color
+    time_div.style.backgroundColor = current_theme.bg
+    time_div.style.color= current_theme.color
+    speed_div.style.color= current_theme.color
+
+    stats.style.color = current_theme.color
+    accuracy_div.style.color= current_theme.color
+
+
+  }
+}
 
 function shuffleArray(array) {
   for (let i = array.length - 1; i > 0; i--) {
@@ -11,9 +77,6 @@ function shuffleArray(array) {
 }
 let words = ""
 
-
-
-
 if (Math.random() < 0.5) {
   words = easy_words;
 } else {
@@ -21,10 +84,6 @@ if (Math.random() < 0.5) {
 }
 let wordArray = words.split(" ")
   
-
-
-
-
 let word_list = [];
 let random_words = shuffleArray(wordArray)
 words = random_words.join(" ")
@@ -107,6 +166,7 @@ let durationInSeconds = 60;
 let key_press_count = 0;
 let game_stop_timer = durationInSeconds;
 timer_div.innerHTML = game_stop_timer;
+
 function getDuration() {
   let time = document.querySelector(".select-time").value;
   durationInSeconds = time;
@@ -261,6 +321,7 @@ let getKeyCharacter = () => {
         stats.style.border = "2px solid white";
         time_div.style.transition = "0.5s ease";
         time_div.style.border = "2px solid white";
+        
         // typingIndicator.classList.toggle = "typingIndicator"
         typingIndicator.className = "typingIndicator";
       }
@@ -268,7 +329,8 @@ let getKeyCharacter = () => {
       if (keyCharacter === word_list[currentIndex]) {
         let currentP = document.getElementById(currentIndex);
         currentP.style.transition = "0.2s ease";
-        currentP.style.color = "white";
+        // currentP.style.color = "#ffa";
+        currentP.style.color = current_theme.color
         currentP.style.position = "relative";
 
         currentIndex++;

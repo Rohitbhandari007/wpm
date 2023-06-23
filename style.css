@@ -106,7 +106,8 @@
   align-items: center;
   gap: 20px;
 }
-.select-time {
+.select-time,
+.select-theme {
   color: white;
   background-color: #333;
   border: 2px solid rgb(61, 60, 60);
