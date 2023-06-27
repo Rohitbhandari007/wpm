@@ -300,7 +300,10 @@ let getKeyCharacter = () => {
     wordCount = filteredKeys.length;
     word_count_div.innerHTML = wordCount;
     console.log(currentIndex, "Cuurent index");
+    console.log(e.key)
+
     if (["Shift", "Alt", "Enter", "Tab", "Control"].includes(e.key)) {
+      console.log(e.key)
       return;
     }
 
