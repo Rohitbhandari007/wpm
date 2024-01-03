@@ -26,7 +26,6 @@ let theme = document.querySelector(".select-theme")
   // backdrop-filter: blur(9px);
 
 function getTheme(){
-  console.log(theme.value)
   if(theme.value === "dark"){
     current_theme=dark_theme
     words_div.style.boxShadow = current_theme.boxShadow;
@@ -134,14 +133,11 @@ const getWord = () => {
     if (index != " ") {
       newWord.id = item;
       newWord.innerText = index;
-      // console.log(item);
-      // console.log(newWord);
+ 
     } else {
       newWord.id = item;
       newWord.innerHTML = "&nbsp";
-      // console.log(item);
 
-      // console.log(newWord);
     }
     words_div.appendChild(newWord);
   });
@@ -154,7 +150,6 @@ typingIndicator.style.position = "fixed";
 let intialPosx = 0
 
 typingIndicatorYpos = intialPosx;
-console.log("initial[os", intialPosx)
 
 
 let perviousKeys = [];
@@ -172,8 +167,6 @@ function getDuration() {
   durationInSeconds = time;
   timer_div.innerHTML = durationInSeconds;
 
-  console.log(time);
-  console.log(game_stop_timer);
 }
 
 function countdownTimer(duration, display) {
@@ -184,13 +177,11 @@ function countdownTimer(duration, display) {
     display.innerHTML = timer;
 
     remaining_time = timer;
-    // console.log(startingTime, remaining_time, wordCount);
     wpm = (wordCount / (startingTime - remaining_time)) * 60;
 
     speed_div.innerHTML = parseInt(wpm);
     game_stop_timer = timer;
 
-    // console.log(wpm);
     if (--timer < 0) {
       timer = 0;
     }
@@ -204,7 +195,6 @@ let getKeyCharacter = () => {
   let keyCharacter = "";
   let currentIndex = 0;
 
-  // console.log(currentIndex, word_list[currentIndex], "index, word");
 
   document.body.addEventListener("keydown", (e) => {
     let x = typingIndicator.getBoundingClientRect().left;
@@ -227,18 +217,15 @@ let getKeyCharacter = () => {
     }
     if(currentIndex === 1){
       intialPosx = y;
-      console.log(intialPosx, "initial position of inidcatior")
 
 
     }
     liveTime = start;
     key_press_count += 1;
    
-    console.log(y)
      typingIndicatorYpos = y;
      
      if(typingIndicatorYpos > intialPosx){
-      console.log("hi next line--------------", typingIndicatorYpos)
       words_div.scroll({
         top: words_div.scrollTop + (typingIndicatorYpos - intialPosx),
         behavior: 'smooth'
@@ -262,7 +249,6 @@ let getKeyCharacter = () => {
 
     // if (intesitityBoxShadow > 0) {
     //   let scaledIntensity = Math.floor((intesitityBoxShadow / 500) * 255);
-    //   console.log(scaledIntensity);
 
     //   red = scaledIntensity;
     //   green = scaledIntensity;
@@ -296,20 +282,16 @@ let getKeyCharacter = () => {
     let filteredKeys = newPreviousKeys.filter((word) =>
       newWordList.includes(word)
     );
-    console.log(filteredKeys)
     wordCount = filteredKeys.length;
     word_count_div.innerHTML = wordCount;
-    console.log(currentIndex, "Cuurent index");
-    console.log(e.key)
+
 
     if (["Shift", "Alt", "Enter", "Tab", "Control"].includes(e.key)) {
-      console.log(e.key)
       return;
     }
 
     if (word_list.length === currentIndex) {
       stop_game = true;
-      console.log(word_list.length, "hi");
     }
     if (game_stop_timer === 0 || stop_game === true) {
       currentIndex = word_list.length;
@@ -344,7 +326,6 @@ let getKeyCharacter = () => {
         calc_accuracy = (accuracy / total_words) * 100;
         currentP.appendChild(typingIndicator);
         accuracy_div.innerHTML = parseInt(calc_accuracy);
-        // console.log(currentIndex, word_list[currentIndex], "next index, word");
       } else {
         if (e.key === "Backspace") {
           // typingIndicator.classList.toggle = "typingIndicatorleft"
@@ -395,11 +376,9 @@ function Refresh() {
 
 
 window.addEventListener('keydown', function(e) {
-  console.log(e.keyCode)
   // Check if the pressed key is the space bar
   if (e.keyCode === 32) {
     // Prevent the default scrolling behavior
-    console.log("hi")
     e.preventDefault();
   }
 });
